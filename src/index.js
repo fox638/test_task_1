@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 import {ConnectedRouter} from 'connected-react-router'
 import store from './store'
 import history from './history'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 ReactDOM.render((
