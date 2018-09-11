@@ -1,8 +1,13 @@
 import {
     LOAD_ALL_NEWS_ERROR,
     LOAD_ALL_NEWS_REQUEST,
-    LOAD_ALL_NEWS_SUCCESS
+    LOAD_ALL_NEWS_SUCCESS,
+    USER_SIGN_IN,
+    USER_LOGOUT
 } from '../constants'
+
+import {toast} from 'react-toastify'
+import {push} from 'connected-react-router'
 
 const url = 'https://newsapi.org/v2/top-headlines?' +
           'country=ru&' +
@@ -27,6 +32,27 @@ export function loadAllNews(){
                     news: rezult.articles
                 }
             })
+        })
+    }
+}
+
+export function SignIn (login, password) {
+    return dispatch => {
+        if(login === 'Admin' && password === '12345'){
+            toast.success('Логин и пароль верный')
+            localStorage.setItem('auth', true)
+            dispatch({
+                type:USER_SIGN_IN
+            })
+        }
+    }
+}
+
+export function Logout () {
+    return dispatch => {
+        localStorage.removeItem('auth')
+        dispatch({
+            type: USER_LOGOUT
         })
     }
 }

@@ -52,7 +52,7 @@ class FullNav extends React.Component {
                                 <Link to="/" className="nav-link">Главная</Link>
                             </NavItem>
                             <NavItem>
-                                <Link to="/login" className="nav-link">Логин</Link>
+                                <Link to="/auth/signin" className="nav-link">Логин</Link>
                             </NavItem>
                             <NavItem>
                                 <Link to="/news" className="nav-link">Новости</Link>

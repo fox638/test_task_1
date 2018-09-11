@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import styled from 'styled-components'
+import styled, {ThemeProvider} from 'styled-components'
 import Nav from './components/Partials/Nav'
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import News from './components/Program/News'
+import SignInForm from './components/User/SignInForm'
+import {themeMain} from './theme/global'
+import {connect} from 'react-redux'
+import {SignIn} from './ac'
+
+//Toast
+import { ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 const PageWrapper = styled.div`
   height: 100%;
@@ -16,17 +24,28 @@ const MainWrapper = styled.div`
 class App extends Component {
   render() {
     return (
-      <PageWrapper>
-        <Nav/>
-        <MainWrapper>
-          <Route path="/news" component={News}/>
+      <div>
+        {/* <ThemeProvider theme={themeMain}> */}
+        {/* <PageWrapper> */}
+          <Nav/>
+          {/* <MainWrapper> */}
+            {/* <Switch> */}
+            <Route path="/news" component={News}/>
+            <Route path="/auth/signin" render={()=> <SignInForm onSubmit={this.handleSignIn}/>}/>
+            {/* </Switch> */}
+          {/* </MainWrapper> */}
+        {/* <ToastContainer hideProgressBar={true} autoClose={2500}/> */}
+        {/* </PageWrapper> */}
+      {/* </ThemeProvider> */}
 
-        </MainWrapper>
-        
-      </PageWrapper>
+      </div>
+      
+      
       
     );
   }
+
+  handleSignIn = ({username, password}) => this.props.SignIn(username, password)
 }
 
-export default App;
+export default connect(null, {SignIn})(App);
