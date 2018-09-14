@@ -7,6 +7,7 @@ import SignInForm from './components/User/SignInForm'
 import {themeMain} from './theme/global'
 import {connect} from 'react-redux'
 import {SignIn} from './ac'
+import ProtectedRouter from './common/ProtectedRouter'
 
 //Toast
 import { ToastContainer } from 'react-toastify'
@@ -20,6 +21,7 @@ const PageWrapper = styled.div`
 const MainWrapper = styled.div`
   flex:1 0 auto;
 `
+const Profile = () => <h2>Личный кабинет</h2>
 
 class App extends Component {
   render() {
@@ -32,6 +34,7 @@ class App extends Component {
              <Switch> 
             <Route path="/news" component={News}/>
             <Route path="/auth/signin" render={()=> <SignInForm onSubmit={this.handleSignIn}/>}/>
+            <ProtectedRouter path="/profile" component={Profile} />
              </Switch> 
            </MainWrapper> 
          <ToastContainer hideProgressBar={true} autoClose={2500}/> 
