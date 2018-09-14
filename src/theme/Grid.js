@@ -3,6 +3,7 @@ import {Flex, Box} from 'grid-styled'
 
 const Container = styled(Box)`
     max-width: 1024px;
+    
 `
 
 Container.defaultProps = {

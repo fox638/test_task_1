@@ -44,6 +44,7 @@ export function SignIn (login, password) {
             dispatch({
                 type:USER_SIGN_IN
             })
+            dispatch(push('/profile'))
         }
     }
 }

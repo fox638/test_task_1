@@ -25,18 +25,18 @@ class App extends Component {
   render() {
     return (
       <div>
-        {/* <ThemeProvider theme={themeMain}> */}
-        {/* <PageWrapper> */}
+        <ThemeProvider theme={themeMain}> 
+         <PageWrapper> 
           <Nav/>
-          {/* <MainWrapper> */}
-            {/* <Switch> */}
+          <MainWrapper> 
+             <Switch> 
             <Route path="/news" component={News}/>
             <Route path="/auth/signin" render={()=> <SignInForm onSubmit={this.handleSignIn}/>}/>
-            {/* </Switch> */}
-          {/* </MainWrapper> */}
-        {/* <ToastContainer hideProgressBar={true} autoClose={2500}/> */}
-        {/* </PageWrapper> */}
-      {/* </ThemeProvider> */}
+             </Switch> 
+           </MainWrapper> 
+         <ToastContainer hideProgressBar={true} autoClose={2500}/> 
+         </PageWrapper> 
+       </ThemeProvider> 
 
       </div>
       
@@ -48,4 +48,4 @@ class App extends Component {
   handleSignIn = ({username, password}) => this.props.SignIn(username, password)
 }
 
-export default connect(null, {SignIn})(App);
+export default connect(null, {SignIn}, null, {pure: false} )(App);

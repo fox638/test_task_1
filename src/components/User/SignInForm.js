@@ -44,7 +44,7 @@ const AsyncValidationForm = props => {
     return (
         <Container>
             <Flex>
-                <Box width={[1, 1/2]} mx="auto" py={4}>
+                <Box width={[1, 1/2]} mx="auto" py={4} style={{marginRight: "auto", marginLeft:"auto"}}>
                     <UserActionPanel>
                         <form onSubmit={handleSubmit}>
                             <Field 
